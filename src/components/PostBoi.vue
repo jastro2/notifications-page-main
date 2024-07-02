@@ -1,25 +1,30 @@
 <template>
     <div class="container">
-        <div @click="toggleRead()" class="row">
-            <div class="col-md-2">
-                <h2>{{sample.test}}</h2>
-                <h3 class="text-warning">here</h3>
-            </div>
-            <div class="col-md-10">
-
-            </div>
+        <div @click="toggleRead()" class="row">  
+            <div class="notification-container">
+                <img :src="id" alt="">
+                <h2>{{name}}</h2>
+                <p class="action">{{ action }}</p>
+                <p class="action-info">{{ actionInfo }}</p>
+                <img class="photo" :src="photo">
+            </div>              
         </div>
     </div>
 </template>
 
 <script>
     export default {
+        props: [
+            'id',
+            'name',
+            'action',
+            'actionInfo',
+            'message',
+            'photo'
+        ],
         data() {
             return {
                 notificationIsRead: false,
-                sample: {
-                    test: 'ayooo'
-                }
             }
         },
         methods: {
